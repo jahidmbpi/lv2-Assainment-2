@@ -94,10 +94,27 @@ LIMIT 2 ;
 UPDATE species
 SET conservation_status='Historic'
  WHERE EXTRACT(year FROM discovery_date) < 1800;
+--provlem-8
 
+SELECT 
+  sighting_id,
+  ranger_id,
+  species_id,
+  location,
+  sighting_time,
+  notes,
+  CASE 
+    WHEN EXTRACT(HOUR FROM sighting_time) BETWEEN 5 AND 11 THEN 'Morning'
+    WHEN EXTRACT(HOUR FROM sighting_time) BETWEEN 12 AND 16 THEN 'Afternoon'
+    WHEN EXTRACT(HOUR FROM sighting_time) BETWEEN 17 AND 20 THEN 'Evening'
+    ELSE 'Other'
+  END AS time_of_day
+FROM sightings;
 
  --provlem-9
 DELETE FROM rangers
 WHERE ranger_id NOT IN(SELECT ranger_id FROM sightings);
+
+
 
 
