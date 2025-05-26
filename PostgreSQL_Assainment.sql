@@ -18,7 +18,6 @@ CREATE TABLE species(
  CREATE TABLE sightings (
 sighting_id SERIAL PRIMARY KEY,
 ranger_id INT,
-FOREIGN KEY(ranger_id) REFERENCES rangers(ranger_id),
 species_id INT,
 FOREIGN KEY(ranger_id) REFERENCES rangers(ranger_id),
 FOREIGN KEY(species_id) REFERENCES species(species_id),
