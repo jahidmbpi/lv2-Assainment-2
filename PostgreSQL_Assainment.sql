@@ -76,7 +76,9 @@ SELECT rangers.name, count(sightings.ranger_id ) as sighting_count FROM rangers
 INNER JOIN sightings  ON rangers.ranger_id= sightings.ranger_id
  GROUP BY rangers.name;
 
-
+--provlem-5
+ SELECT * FROM species
+ WHERE species_id NOT IN (SELECT species_id FROM sightings);
 
  --provlem-6
 
@@ -92,4 +94,5 @@ LIMIT 2 ;
 UPDATE species
 SET conservation_status='Historic'
  WHERE EXTRACT(year FROM discovery_date) < 1800;
- 
+
+
