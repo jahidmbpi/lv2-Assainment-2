@@ -100,5 +100,4 @@ SET conservation_status='Historic'
 DELETE FROM rangers
 WHERE ranger_id NOT IN(SELECT ranger_id FROM sightings);
 
-SELECT * FROM sightings;
-SELECT * FROM rangers;
+
