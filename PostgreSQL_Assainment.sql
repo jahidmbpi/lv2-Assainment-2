@@ -96,3 +96,9 @@ SET conservation_status='Historic'
  WHERE EXTRACT(year FROM discovery_date) < 1800;
 
 
+ --provlem-9
+DELETE FROM rangers
+WHERE ranger_id NOT IN(SELECT ranger_id FROM sightings);
+
+SELECT * FROM sightings;
+SELECT * FROM rangers;
